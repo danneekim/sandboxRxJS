@@ -2,8 +2,8 @@ document.body.append(Object.assign(document.createElement('p'),{innerHTML:"Behav
 
 const { BehaviorSubject } = rxjs;
 
-const behaviorSubject$ = new BehaviorSubject();
-// const behaviorSubject$ = new BehaviorbehaviorSubject('CERO'); // init. default val
+// const behaviorSubject$ = new BehaviorSubject();
+const behaviorSubject$ = new BehaviorSubject('CERO'); // init. default val
 
 // subscriber 1
 behaviorSubject$.subscribe((data) => {
@@ -20,12 +20,12 @@ behaviorSubject$.subscribe((data) => {
 
 behaviorSubject$.next('TRES');
 
-console.log(behaviorSubject$.value) //can print .value
+// console.log(behaviorSubject$.value) //can print .value
 
 // // output
-// // Subscriber A: undefined
-// // Subscriber A: UNO
-// // Subscriber A: DOS
+// // Subscriber A: CERO          <--- on subscribe A
+// // Subscriber A: UNO           <--- next('UNO')
+// // Subscriber A: DOS           <--- next('DOS')          
 // // Subscriber B: DOS
 // // Subscriber A: TRES
 // // Subscriber B: TRES
